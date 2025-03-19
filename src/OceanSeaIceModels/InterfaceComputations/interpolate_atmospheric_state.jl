@@ -66,8 +66,8 @@ function interpolate_atmosphere_state!(interfaces, atmosphere::PrescribedAtmosph
     times = ua.times
     time_indexing = ua.time_indexing
     t = clock.time
-    Core.println("time is a $(typeof(t))")
-    @assert time isa AbstractRange
+    Core.println("times is a $(typeof(times))")
+    @assert times isa AbstractRange
     time_interpolator = TimeInterpolator(ua.time_indexing, times, clock.time)
     
     launch!(arch, grid, kernel_parameters,
